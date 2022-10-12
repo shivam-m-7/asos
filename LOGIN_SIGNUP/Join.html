@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/646ce80a81.js" crossorigin="anonymous"></script>
+    <title>SignUp Page</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+        *
+        {
+            background-color: rgb(238,238,238);
+            font-family:'PT Sans', sans-serif;
+        }
+        #img
+        {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0px 25px 0px;
+        }
+        #container
+        {
+            width: 40%;
+            margin: auto;
+        }
+        form
+        {
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            background-color: white;
+            padding-bottom: 50px;
+        }
+        input
+        {
+            width: 100%;
+            padding: 10px 0px;
+            border: 1px solid black;
+            background-color: white;
+        }
+        #selecttag
+        {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+        #month
+        {
+            width: 50%;
+        }
+        #date
+        {
+            width: 20%;
+        }
+        #year
+        {
+            width:25%
+        }
+        select
+        {
+            padding: 10px 5px;
+            border: 1px solid black;
+            background-color: white;
+            justify-content: space-between;
+        }
+        #parent
+        {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            background-color: white;
+        }
+        #parent>div
+        {
+            border-bottom: 2px solid rgb(241,241,241);
+            padding: 20px;
+            width: 50%;
+            text-align: center;
+            background-color: white;
+        }
+        #parent>div:first-child
+        {
+            border-bottom: 2px solid rgb(127,181,230);
+            border-right: 2px solid rgb(241,241,241);
+            text-align: center;
+        }
+        #parent>div>a
+        {
+            text-decoration: none;
+            font-size: 14px;
+            color: black;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background-color: white;
+        }
+        #parent>div:last-child>a
+        {
+            color: rgb(118, 118, 118);
+        }
+        form>div:nth-child(4),#oc
+        {
+            width:90%;
+            margin: auto;
+            text-align: center;
+            background-color: white;
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 25px;
+        }
+        #oc
+        {
+            text-align: left;
+            width: 100%;
+            color: rgb(188,186,172);
+            margin-top: 2px;
+        }
+        form>div:nth-child(6)
+        {
+            margin: auto;
+            max-width: 400px;
+            line-height: 40px;
+            background-color: white;
+        }
+        label
+        {
+            font-size: 14px;
+            color: rgb(118, 118, 118);
+            font-weight: 700;
+            letter-spacing: 2px;
+            background-color: white;
+        }
+        .submit
+        {
+            margin-top: 25px;
+            background-color: black;
+            color:white;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .submit:hover
+        {
+            box-shadow: inset 0 0 0 10em rgba(255, 255, 255, 0.3);
+        }
+        #parent>div:last-child>a:hover
+        {
+            filter: brightness(120%);
+        }
+        h2
+        {
+            letter-spacing: 2px;
+            font-size: 18px;
+            text-align: center;
+            background-color: white;
+        }
+        form>div:nth-child(3)
+        {
+            display: grid;
+            width: 85%;
+            margin: auto;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+            background-color: white;
+        }
+        form>div:nth-child(3)>button
+        {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: 1px solid rgb(118, 118, 118);
+            cursor: pointer;
+        }
+        form>div:nth-child(3)>button img
+        {
+            background-color: white;
+            width:10%;
+            padding-right: 30px;
+        }
+        form>div:nth-child(3)>button:hover
+        {
+            filter: brightness(150%);
+        }
+        #radio
+        {
+            display: flex;
+            background-color: white;
+            justify-content: left;
+        }
+        #radio>input
+        {
+            width: 25px;
+        }
+        #radio>label
+        {
+            margin-left: 10px;
+            margin-right: 50px;
+        }
+        #updates,p
+        {
+            background-color:white;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin: -5px 0px;
+        }
+        #updates>div
+        {
+            background-color: white;
+        }
+        #updates>div>label
+        {
+            color: black;
+        }
+        #updates>div:last-child>button
+        {
+            border: none;
+            padding: 10px;
+            color: black;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+        .pref
+        {
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            align-items: flex-end;
+            margin-top: 10px;
+        }
+        .pref>input
+        {
+            width:10%;
+            height: 20px;
+        }
+        .pref>label
+        {
+            color:black;
+        }
+        @media screen and (min-width: 701px) and (max-width: 1290px)
+        {
+            #container
+            {
+                width: 80%;
+            }
+            form>div:nth-child(3)
+            {
+            grid-template-columns: repeat(1,1fr);
+            }
+            #radio
+            {
+            display: flex;
+            flex-direction: column;
+            }
+        }
+        @media screen and (max-width: 700px) 
+        {
+            #container
+            {
+                width: 70%;
+            }
+            form>div:nth-child(3)
+            {
+            grid-template-columns: repeat(1,1fr);
+            }
+            #radio
+            {
+            display: flex;
+            flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <div id="img">
+        <img src="https://my.asos.com/Content/images/asos-logo-2022-93x28.png" alt="asos homepage">
+    </div>
+    
+    <form>
+        <div id="parent">
+            <div>
+                <a href="#">JOIN</a>
+            </div>
+            <div>
+                <a href="..\LOGIN_SIGNUP\Login.html">SIGN IN</a>
+            </div>
+        </div>
+        <h2>SIGN UP WITH...</h2>
+        <div>
+            <button><img src="https://image.similarpng.com/very-thumbnail/2020/12/Illustration-of-Google-icon-on-transparent-background-PNG.png" alt=""> GOOGLE</button>
+            <button><img src="https://cdn-icons-png.flaticon.com/512/15/15476.png" alt=""> APPLE</button>
+            <button><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt=""> FACEBOOK</button>
+        </div>
+        <div>Signing up with social is super quick. No extra passwords to remember - no brain fail. Don't worry, we'd never share any of your data or post anything on your behalf #notevil</div>
+        <h2>SIGN UP WITH EMAIL</h2>
+        <div>
+        <Label>EMAIL ADDRESS:</Label>
+        <br>
+        <input id="email" type="email" required>
+        <br>
+        <div id="oc">We'll send your order confirmation here</div>
+        <Label>FIRST NAME:</Label>
+        <br>
+        <input id="fname" type="text" required>
+        <br>
+        <Label>LAST NAME:</Label>
+        <br>
+        <input id="lname" type="text" required>
+        <br>
+        <Label>PASSWORD:</Label>
+        <br>
+        <input id="password" type="password" required>
+        <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+        <div id="oc">Must be 10 or more characters</div>
+        <Label>DATE OF BIRTH:</Label>
+        <br>
+        <div id="selecttag">
+        <select id="date" >
+            <option value="">DD</option>
+            <option value="01">01</option>
+            <option value="02">02 </option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+        </select>
+        <select id="month" >
+            <option value="">Month</option>
+            <option value="01">January</option>
+            <option value="02">February </option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+        <select id="year" >
+            <option value="">YYYY</option>
+            <option value="06"> 2006</option>
+            <option value="05"> 2005</option>
+            <option value="04"> 2004</option>
+            <option value="03"> 2003</option>
+            <option value="02"> 2002</option>
+            <option value="01"> 2001</option>
+            <option value="00"> 2000</option>
+            <option value="99"> 1999</option>
+            <option value="98"> 1998</option>
+            <option value="97"> 1997</option>
+            <option value="96"> 1996</option>
+            <option value="95"> 1995</option>
+            <option value="94"> 1994</option>
+        </select>
+        </div>
+        <div id="oc">You need to be 16 or over to use ASOS</div>
+        <Label>MOSTLY INTERESTED IN:</Label>
+        <div id="radio">
+        <input type="radio" value="Womenswear" name="radiobutton">
+        <label>Womenswear </label>
+        <input type="radio" value="Menswear" name="radiobutton">
+        <label>Menswear</label>
+        <br>
+        </div>
+        <div id="updates">
+            <div>
+                <br>
+                <label>CONTACT PREFERENCES</label>
+                <p>Tell us which emails you’d like:</p>
+                </div>
+            <div>
+                <button id="selectall">SELECT ALL</button><br>
+            </div>
+        </div>
+        <div class="pref">
+        <label>Discount and Sales</label>
+        <input name="cb" type="checkbox" value="Discount">
+        </div>
+        <div class="pref">
+        <label>New Stuff</label>
+        <input name="cb" type="checkbox" value="new stuff">
+        </div>
+        <div class="pref">
+        <label>Your exclusives</label>
+        <input name="cb" type="checkbox" value="exclusives">
+        </div>
+        <div class="pref">
+        <label>ASOS Partners</label>
+        <input name="cb" type="checkbox" value="AP">
+        </div>
+        <input class="submit" type="submit" value="JOIN ASOS">
+        </div>
+        
+        </div>
+        
+    </form>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector(".submit").addEventListener("click",signup)
+    function signup()
+    {
+        event.preventDefault()
+        var data=JSON.parse(localStorage.getItem("data"))||[]
+        var email=document.querySelector("#email")
+        var password=document.querySelector("#password")
+        var fname=document.querySelector("#fname")
+        var lname=document.querySelector("#lname")
+        if(data.length==0)
+        {
+            if(password.value.length<10)
+            {
+            alert("Password length should be more than 10 characters")
+            }    
+            else
+            {
+            var signupobj=
+            {
+            email:email.value,
+            password:password.value,
+            fname:fname.value,
+            lname:lname.value
+            }
+            data.push(signupobj)
+            localStorage.setItem("data",JSON.stringify(data))
+            alert("Sign Up Successfull")
+            window.location.href="../LOGIN_SIGNUP/Login.html"
+            }
+        }
+        else
+        {
+        if(password.value.length<10)
+        {
+            alert("Password length should be more than 10 characters")
+        } 
+        else
+        {
+        data.map(function(ele)
+        {
+            console.log(ele.email)
+            if(ele.email==email.value)
+            {
+                alert("Email ID already exists!")
+            }
+            else
+            {
+                var signupobj=
+                {
+                email:email.value,
+                password:password.value
+                }
+                data.push(signupobj)
+                localStorage.setItem("data",JSON.stringify(data))
+                alert("Sign Up Successfull")
+                window.location.href="Mainpage.html"
+            }
+        })
+        }
+        }
+    }
+    
+    document.querySelector("#selectall").addEventListener("click",function()
+    {
+        if(document.querySelector("#selectall").innerHTML=="SELECT ALL")
+        {
+        selects()
+        function selects(){  
+                    event.preventDefault()
+                    var ele=document.getElementsByName('cb');  
+                    for(var i=0; i<ele.length; i++){  
+                        if(ele[i].type=='checkbox')  
+                            ele[i].checked=true;  
+                    }  
+                    document.querySelector("#selectall").innerHTML="CLEAR"
+                }  
+        }
+        else
+        {
+        deselects()
+        function deselects(){  
+                    event.preventDefault()
+                    var ele=document.getElementsByName('cb');  
+                    for(var i=0; i<ele.length; i++){  
+                        if(ele[i].type=='checkbox')  
+                            ele[i].checked=false;  
+                    }  
+                    document.querySelector("#selectall").innerHTML="SELECT ALL"
+                }  
+        }
+        }
+    )
+const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#password');
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+</script>

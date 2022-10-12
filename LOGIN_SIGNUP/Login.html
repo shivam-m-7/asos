@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/646ce80a81.js" crossorigin="anonymous"></script>
+    <title>Login Page</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+        *
+        {
+            background-color: rgb(238,238,238);
+            font-family:'PT Sans', sans-serif;
+        }
+        #img
+        {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0px 25px 0px;
+        }
+        #container
+        {
+            width: 40%;
+            margin: auto;
+        }
+        form
+        {
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            background-color: white;
+            padding-bottom: 50px;
+        }
+        input
+        {
+            width: 100%;
+            padding: 10px 0px;
+            border: 1px solid black;
+            background-color: white;
+        }
+        #parent
+        {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            background-color: white;
+        }
+        #parent>div
+        {
+            border-bottom: 2px solid rgb(241,241,241);
+            padding: 20px;
+            width: 50%;
+            text-align: center;
+            background-color: white;
+        }
+        #parent>div:last-child
+        {
+            border-bottom: 2px solid rgb(127,181,230);
+            border-left: 2px solid rgb(241,241,241);
+            text-align: center;
+        }
+        #parent>div>a
+        {
+            text-decoration: none;
+            font-size: 14px;
+            color: rgb(118, 118, 118);
+            font-weight: 700;
+            letter-spacing: 2px;
+            background-color: white;
+        }
+        #parent>div:last-child>a
+        {
+            color: black;
+        }
+        form>div:nth-child(2)
+        {
+            margin: auto;
+            max-width: 400px;
+            line-height: 40px;
+            background-color: white;
+        }
+        label
+        {
+            font-size: 14px;
+            color: rgb(118, 118, 118);
+            font-weight: 700;
+            letter-spacing: 2px;
+            background-color: white;
+        }
+        .submit
+        {
+            margin-top: 25px;
+            background-color: black;
+            color:white;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .submit:hover
+        {
+            box-shadow: inset 0 0 0 10em rgba(255, 255, 255, 0.3);
+        }
+        #parent>div:first-child>a:hover
+        {
+            filter: brightness(120%);
+        }
+        #passfor
+        {
+            width: 100%;
+            margin: auto;
+            background-color: white;
+            border: none;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        h2
+        {
+            letter-spacing: 2px;
+            font-size: 18px;
+            text-align: center;
+            background-color: white;
+        }
+        form>div:nth-child(3)
+        {
+            display: grid;
+            width: 60%;
+            margin: auto;
+            grid-template-columns: repeat(2,1fr);
+            gap: 10px;
+            background-color: white;
+        }
+        form>div:nth-child(3)>button
+        {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: 1px solid rgb(118, 118, 118);
+            cursor: pointer;
+        }
+        form>div:nth-child(3)>button img
+        {
+            background-color: white;
+            width:10%;
+            padding-right: 30px;
+        }
+        form>div:nth-child(3)>button:hover
+        {
+            filter: brightness(150%);
+        }
+        @media screen and (min-width: 701px) and (max-width: 1290px)
+        {
+            #container
+            {
+                width: 70%;
+            }
+            form>div:nth-child(3)
+            {
+            grid-template-columns: repeat(1,1fr);
+            }
+            
+        }
+        @media screen and (max-width: 700px) 
+        {
+            #container
+            {
+                width: 80%;
+            }
+            form>div:nth-child(3)
+            {
+            grid-template-columns: repeat(1,1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    <div id="img">
+        <img src="https://my.asos.com/Content/images/asos-logo-2022-93x28.png" alt="asos homepage">
+    </div>
+    <form>
+        <div id="parent">
+            <div>
+                <a href="..\LOGIN_SIGNUP\join.html">JOIN</a>
+            </div>
+            <div>
+                <a href="#">SIGN IN</a>
+            </div>
+        </div>
+        <div>
+        <Label>EMAIL ADDRESS:</Label>
+        <br>
+        <input id="email" type="email"required>
+        <br>
+        <Label>PASSWORD:</Label>
+        <br>
+        <input id="password" type="password"required>
+        <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+        <br>
+        <input class="submit" type="submit" value="SIGN IN"><br>
+        <button id="passfor">Forgot Password?</button>
+        <br>
+        <h2>OR SIGN IN WITH...</h2>
+        </div>
+        <div>
+            <button><img src="https://image.similarpng.com/very-thumbnail/2020/12/Illustration-of-Google-icon-on-transparent-background-PNG.png" alt=""> GOOGLE</button>
+            <button><img src="https://cdn-icons-png.flaticon.com/512/15/15476.png" alt=""> APPLE</button>
+            <button><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt=""> FACEBOOK</button>
+            <button><img src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" alt=""> TWITTER</button>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
+<script>
+    document.querySelector("#passfor").addEventListener("click",forgotpassword)
+    function forgotpassword()
+    {
+        window.location.href="password.html";
+    }
+    document.querySelector("#email").addEventListener("input", function(event){
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity("Oops! You need to type your email here");
+                email.reportValidity();
+            } else {
+                email.setCustomValidity("");
+            }
+            });
+    document.querySelector("#password").addEventListener("input", function(event){
+            if (password.validity.typeMismatch) {
+                password.setCustomValidity("Hey, we need a password here");
+                password.reportValidity();
+            } else {
+                password.setCustomValidity("");
+            }
+            });
+    document.querySelector("form").addEventListener("submit",login)
+    function login()
+    {
+        event.preventDefault()
+        var email=document.querySelector("#email").value
+        var password=document.querySelector("#password").value
+        var loginarr=JSON.parse(localStorage.getItem("data"))||[]
+        if(loginarr.length==0)
+        {
+            alert("! Looks like either your email address or password were incorrect. Wanna try again?")
+        }
+        loginarr.map(function(ele)
+        {
+            if(email==ele.email)
+            {
+                console.log(ele.password)
+                console.log(password)
+                if(password==ele.password)
+                {
+                    var logindata=[]
+                    var loginobj={
+                        email:ele.email,
+                        fname:ele.fname,
+                        lname:ele.lname
+                    }
+                    logindata.push(loginobj)
+                    localStorage.setItem("logindata",JSON.stringify(logindata))
+                    alert("Login Successfull")
+                }
+                else
+                {
+                alert("Wrong Credentials!")
+                }
+            }
+            else
+            {
+                alert("Wrong Credentials!")
+            }
+        })
+    }
+    
+    const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#password');
+  togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+</script>
