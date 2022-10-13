@@ -132,12 +132,13 @@
             document.querySelector("#container").append(p,h2,p1,signin)
             var cont=document.querySelector("#container")
             cont.setAttribute("style",'grid-template-columns: repeat(' + 1 + ', 1fr)');
+            cont.style.marginTop="150px"
         }
     else
     {
     var wishlistdata=mensData.filter(function(ele)
     {
-    return ele.isInWishlist==true && ele.IsInCart==false;
+    return ele.isInWishlist==true && ele.isInCart==false;
     })
     if(wishlistdata.length==0)
     {
@@ -154,12 +155,13 @@
         signin.addEventListener("click",login)
         function login()
         {
-            window.location.href="../mainlandingpage"
+            window.location.href="../LANDING PAGE/index.html"
         }
         p1.innerText="Start saving as you shop by selecting the little heart.We'll sync your items across all your devices. Easy."
         document.querySelector("#container").append(p,h2,p1,signin)
         var cont=document.querySelector("#container")
         cont.setAttribute("style",'grid-template-columns: repeat(' + 1 + ', 1fr)');
+        cont.style.marginTop="150px"
     }
     else
     {
@@ -299,7 +301,7 @@
                 bag.addEventListener("click",movetobag)
                 function movetobag()
                 {
-                    ele.IsInCart=true
+                    ele.isInCart=true
                     localStorage.setItem("mensData",JSON.stringify(mensData))
                     call(mensData)
                 }
@@ -313,7 +315,7 @@
     {
         var wishlistdata=mensData.filter(function(ele)
         {
-        return ele.isInWishlist==true && ele.IsInCart==false;
+        return ele.isInWishlist==true && ele.isInCart==false;
         })
         var sort=document.querySelector("#sort").value
         if(sort=="l-h")
