@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mens Product Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PT Sans', sans-serif;
+        }
+        
+        .salePane{
+            display: flex;
+            justify-content:stretch;
+            align-items: stretch;
+            font-weight: 700;
+            background-color: black;
+            color: white;
+
+        }
+        
+        .salePane > *{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.2rem 0;
+        }
+
+        .salePane div:nth-child(1){
+            background-color: blueviolet;
+        }
+
+        .salePane div:nth-child(2) p{
+            font-size: 16px;
+        }
+
+        .salePane > div > p{
+            font-size: 14px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        #path{
+            display: flex;
+            list-style-type: none;
+            padding: 1.2rem 2%;
+        }
+
+        #path > li{
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        #path > li:nth-child(odd){
+            cursor: pointer;
+        }
+
+        #path > *{
+            margin-right: 1.5rem;
+        }
+
+        #path + div {
+            background-color: #F8F8F8;
+            padding: 2rem 0;
+        }
+
+        #path + div > h1{
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        #path + div > p{
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-align: center;
+            width: calc(100% - 1rem);
+            max-width: 980px;
+            margin: auto;
+            word-wrap: break-word;
+        }
+
+        header + div{
+            padding: 3rem 1%;
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-columns: repeat(6,1fr);
+            gap: 1.5rem;
+            background-color: #EEE;
+            margin-bottom: 2rem;
+        }
+
+        header + div > * {
+            background-color: transparent;
+            padding: 1rem 0.5rem;
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+
+        header + div > div > select{
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #productsContainer{
+            display: grid;
+            width: 95%;
+            max-width: 1302px;
+            margin: auto;
+            gap: 1rem;
+            grid-template-columns: repeat(4,1fr) ;
+        }
+
+        .card{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+    
+        #wishListButton{
+            position: absolute;
+            height: 35px;
+            width: 35px;
+            background-color: rgba(0, 0, 0, 0.15);
+            /* background-color: red; */
+            right: 1rem;
+            top: 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 100;
+        }
+
+        #wishListButton:hover{
+            background-color: rgba(255, 42, 42, 0.594);
+            color: white;
+            font-size: 20px;
+        }
+
+        #wishListButton.addedToWishlist{
+            background-color: purple;
+            color: white;
+        }
+
+        .card > img{
+            inline-size: 100%;
+            object-fit: cover;
+            aspect-ratio: 13/16;
+            margin-bottom: 0.25rem;
+        }
+
+        .card > p{
+            display: flex;
+            justify-content: flex-start;
+            line-height: 20px;
+            word-wrap: break-word;
+            padding: 0.45rem;
+            font-weight: 400;
+
+        }
+
+        .card > p:first-of-type{
+            flex-grow: 1;
+            color: #2D2D2D;
+        }
+        
+        .card > p > span{
+            color: #2D2D2D;
+            margin-left: 0.25rem;
+            font-weight: 700;
+        }
+
+        header + div > div > select:focus + div{
+            display: block;
+            height: 150px;
+            width: 100%;
+            position: absolute;
+            z-index: 5000000;
+            background-color: black;
+        }
+
+        header + div > div > select:focus > option{
+            display: none;
+        }
+        
+        .optionSelectorContainer{
+            display: none;
+            
+        }
+
+        #back-to-up.d-none{
+            display: none;
+        }
+        
+        #back-to-up{
+            position: fixed;
+            /* display: none; */
+            bottom: 5rem;
+            right : 5rem;
+            height: 50px;
+            border: none;
+            font-size: 2rem;
+            width: 50px;
+            background-color: black;
+            color: white;
+            z-index: 10000;
+        }
+
+
+        @media screen and (max-width:1024px){
+            #productsContainer{
+                grid-template-columns: repeat(3,1fr);
+            }
+            header + div{
+                grid-template-columns: repeat(3,1fr);
+                grid-auto-flow: initial;
+            }
+        }
+
+        @media screen and (max-width:768px){
+            #productsContainer{
+                grid-template-columns: repeat(2,1fr);
+            }
+            header + div{
+                grid-template-columns: repeat(2,1fr);
+                grid-auto-flow: initial;
+            }
+            .salePane > div > p{
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <button onclick="scrollToTop()" id="back-to-up">
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </button>
+
+    <header>
+        <div class="salePane">
+            <div>
+                <p>EXTRA 30% OFF SALE DRESSES!*<br>
+                    UP TO 80% OFF ALREADY<br>
+                    With code: SALE30 </p>
+            </div>
+            <div>
+                <p>Free WorldWide Delivery</p>
+            </div>
+        </div>
+        <ul id="path"></ul>
+        <div>
+            <h1></h1>
+            <p>Check out our edit of men’s new-in clothing for your weekly drop of the freshest styles. Browse what’s trending with ASOS DESIGN’s range of everyday staples, featuring jeans, jumpers and T-shirts, or add something new to your workwear rotation with its offering of tailored suits and crisp shirts. If your outerwear needs a refresh, filter by Pull&Bear for trench coats and puffer jackets that’ll see you through those colder days. Looking for something to slot straight into your wardrobe? Shop River Island for easy style wins – think shirts, jackets, T-shirts and accessories.</p>
+        </div>
+    </header>
+    <div>
+        <select name="price" id="priceSelect">
+            <option value="">Sort</option>
+            <option value="lth">Price Low To High</option>
+            <option value="htl">Price High To Low</option>
+        </select>
+
+        <select name="Category" id="category">
+            <option value="">Category</option>
+            <option value="Tops">Tops</option>
+            <option value="Dresses">Dresses</option>
+            <option value="T-shirts">T-shirts</option>
+            <option value="Shirts">Shirts</option>
+            <option value="Jackets">Jackets</option>
+            <option value="Sweatshirts">Sweatshirts</option>
+            <option value="Tracksuits">Tracksuits</option>
+            <option value="Jeans">Jeans</option>
+            <option value="Sportswear">Sportswear</option>
+        </select>
+
+        <select name="brand" id="brand">
+            <option value="">Brand</option>
+            <option value="ASOS DESIGN">ASOS DESIGN</option>
+            <option value="Levi's">Levi's</option>
+            <option value="Devil's">Devil's</option>
+            <option value="Penguin">Penguin</option>
+            <option value="Vans">Vans</option>
+            <option value="LA-based">LA-based</option>
+            <option value="Garnier">Garnier</option>
+            <option value="Pull&Bear">Pull&Bear</option>
+            <option value="adidas">adidas</option>
+            <option value="SVNX">SVNX</option>
+            <option value="River Island">River Island</option>
+        </select>
+
+        <select name="price" id="priceSelect">
+            <option value="">Colour</option>
+            <option value="lth">Low To High</option>
+            <option value="htl">High To Low</option>
+        </select>
+
+        <select name="price" id="priceSelect">
+            <option value="">Size</option>
+            <option value="lth">Low To High</option>
+            <option value="htl">High To Low</option>
+        </select>
+    </div>
+    <div id="productsContainer"></div>
+</body>
+<script src="products.js" type="module"></script>
+</html>
