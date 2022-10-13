@@ -23,7 +23,10 @@
         #container
         {
             width: 40%;
+            margin: 0px;
+            padding: 0px;
             margin: auto;
+            
         }
         form
         {
@@ -34,7 +37,7 @@
         input
         {
             width: 100%;
-            padding: 10px 0px;
+            padding: 10px 0px 10px 5px;
             border: 1px solid black;
             background-color: white;
         }
@@ -243,7 +246,7 @@
         {
             color:black;
         }
-        @media screen and (min-width: 701px) and (max-width: 1290px)
+        @media screen and (min-width: 701px) and (max-width: 1024px)
         {
             #container
             {
@@ -252,6 +255,15 @@
             form>div:nth-child(3)
             {
             grid-template-columns: repeat(1,1fr);
+            width: 40%;
+            }
+            form>div:nth-child(3)>button
+            {
+            padding: 10px 10px;
+            }
+            form>div:nth-child(3)>button img
+            {
+            width:8%;
             }
             #radio
             {
@@ -268,6 +280,15 @@
             form>div:nth-child(3)
             {
             grid-template-columns: repeat(1,1fr);
+            width: 40%;
+            }
+            form>div:nth-child(3)>button
+            {
+            padding: 10px 10px;
+            }
+            form>div:nth-child(3)>button img
+            {
+            width:8%;
             }
             #radio
             {
@@ -289,7 +310,7 @@
                 <a href="#">JOIN</a>
             </div>
             <div>
-                <a href="..\LOGIN_SIGNUP\Login.html">SIGN IN</a>
+                <a href="../LOGIN_SIGNUP/Login.html">SIGN IN</a>
             </div>
         </div>
         <h2>SIGN UP WITH...</h2>
@@ -433,6 +454,14 @@
 </body>
 </html>
 <script>
+    document.querySelector("#email").addEventListener("input", function(event){
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity("Email Fail! You need to type your email here");
+                email.reportValidity();
+            } else {
+                email.setCustomValidity("");
+            }
+            });
     document.querySelector(".submit").addEventListener("click",signup)
     function signup()
     {
@@ -442,6 +471,8 @@
         var password=document.querySelector("#password")
         var fname=document.querySelector("#fname")
         var lname=document.querySelector("#lname")
+        var isMenOrWomen=document.querySelector('input[name="radiobutton"]:checked').value;
+        console.log(isMenOrWomen)
         if(data.length==0)
         {
             if(password.value.length<10)
@@ -488,7 +519,7 @@
                 data.push(signupobj)
                 localStorage.setItem("data",JSON.stringify(data))
                 alert("Sign Up Successfull")
-                window.location.href="Mainpage.html"
+                window.location.href="../LANDING PAGE/index.html"
             }
         })
         }
