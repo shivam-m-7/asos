@@ -18,11 +18,6 @@
             letter-spacing: 2px;
             color: #2d2d2d;
         }
-
-        body{
-            padding: 7rem 0;
-        }
-
         .salePane{
             padding: 0.8rem 0;
             display: flex;
@@ -400,6 +395,7 @@
     </style>
 </head>
 <body>
+    <div id="nav-placeholder"></div>
     <header>
         <div class="salePane">
             <button id="linkToMen">Men</button>
@@ -463,6 +459,21 @@
     <h2 class="alsoLike">You Might Also Like</h2>
     <div id="recommendations">
     </div>
+    <div id="foot-placeholder"></div>
 </body>
 <script src="productDescription.js"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+$.get("navbar.html", function(data){
+    $("#nav-placeholder").replaceWith(data);
+});
+</script>
+
+</script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+$.get("footer.html", function(data){
+    $("#foot-placeholder").replaceWith(data);
+});
+</script>
 </html>
