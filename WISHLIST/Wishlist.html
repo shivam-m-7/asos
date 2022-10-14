@@ -21,6 +21,7 @@
             margin-top: 30px;
             text-align: center;
             font-size: 18px;
+            line-height: 40px;
         }
         #signin
         {
@@ -81,7 +82,7 @@
             width:90%;
             margin: auto;
         }
-        @media screen and (min-width: 701px) and (max-width: 1290px)
+        @media screen and (min-width: 701px) and (max-width: 1024px)
         {
             #container
             {
@@ -98,12 +99,14 @@
     </style>
 </head>
 <body>
+    <div id="nav-placeholder"></div>
     <div id="title"></div>
     <div id="sortportion"></div>
     <div id="container"></div>
+    <div id="foot-placeholder"></div>
 </body>
 <script>
-    var mensData=JSON.parse(localStorage.getItem("mensData"))||[]
+    var mensData=JSON.parse(localStorage.getItem("products"))||[]
     call(mensData)
     function call(mensData)
     {
@@ -155,7 +158,7 @@
         signin.addEventListener("click",login)
         function login()
         {
-            window.location.href="../LANDING PAGE/index.html"
+            window.location.href="../index.html"
         }
         p1.innerText="Start saving as you shop by selecting the little heart.We'll sync your items across all your devices. Easy."
         document.querySelector("#container").append(p,h2,p1,signin)
@@ -171,7 +174,6 @@
             h1.style.textAlign="center"
             h1.style.padding="15px"
             divtitle.style.backgroundColor="rgb(238,238,238)"
-            divtitle.style.marginTop="100px"
             divtitle.append(h1)
             document.querySelector("#title").append(divtitle)
         var divsort=document.createElement("div")
@@ -206,7 +208,7 @@
         sort.setAttribute("id","sort")
         divsort.append(sort)
         document.querySelector("#sortportion").append(divsort)
-        
+        divsort.style.marginBottom="50px"
         wishlistdata.map(function(ele)
         {
             var div=document.createElement("div")
@@ -219,7 +221,7 @@
             function deleteitem()
             {
                 ele.isInWishlist=false;
-                localStorage.setItem("mensData",JSON.stringify(mensData))
+                localStorage.setItem("products",JSON.stringify(mensData))
                 call(mensData)
             }
             var img=document.createElement("img")
@@ -302,7 +304,7 @@
                 function movetobag()
                 {
                     ele.isInCart=true
-                    localStorage.setItem("mensData",JSON.stringify(mensData))
+                    localStorage.setItem("products",JSON.stringify(mensData))
                     call(mensData)
                 }
             }
@@ -376,3 +378,17 @@
     }
 </script>
 </html>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+$.get("./navbar.html", function(data){
+    $("#nav-placeholder").replaceWith(data);
+});
+</script>
+
+</script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+$.get("./footer.html", function(data){
+    $("#foot-placeholder").replaceWith(data);
+});
+</script>
