@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+      }
+      nav {
+        background-color: #2d2d2d;
+        display: flex;
+        height: 64px;
+      }
+
+      .navLeft {
+        flex: 0.5;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 2rem;
+        padding-left: 3%;
+        /* background-color: red; */
+      }
+
+      .navLeft > a:first-of-type {
+        margin-left: 4%;
+      }
+
+      .navLeft > a {
+        height: 100%;
+        color: white;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        /* background-color: yellow; */
+        border-right: 1px solid white;
+      }
+
+      .navLeft > a:hover {
+        background-color: #525050;
+      }
+
+      .navMid {
+        flex: auto;
+        /* background-color: green; */
+        display: flex;
+        align-items: center;
+        justify-content: stretch;
+      }
+
+      #logoText {
+        color: white;
+        /* background-color: yellow; */
+        display: flex;
+        align-items: center;
+        font-weight: 900;
+        height: 100%;
+        font-size: 52px;
+      }
+
+      .searchBarContainer {
+        display: flex;
+        align-items: center;
+        justify-content: stretch;
+        height: 60%;
+        border-radius: 25px;
+        padding: 0 1.5rem;
+        width: 97%;
+        margin: auto;
+        background-color: white;
+      }
+
+      .searchBarContainer > input {
+        display: block;
+        width: 100%;
+        border: none;
+        outline: none;
+      }
+
+      .searchBarContainer > img {
+        display: block;
+        width: 20px;
+      }
+
+      .navRight {
+        display: flex;
+        align-items: center;
+        flex: 0.5;
+      }
+
+      .navRight > img {
+        height: 35%;
+        margin-left: 2rem;
+      }
+      .lowmenu {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        align-items: center;
+        height: 3rem;
+        background-color: #525050;
+      }
+      .lowmenu li {
+        display: flex;
+        position: relative;
+        align-items: center;
+        height: 100%;
+        padding: 0 1.2%;
+      }
+
+      .firstlast {
+        background-color: #d01345;
+        transform: skew(-12deg);
+      }
+
+      .lowmenu li a {
+        color: white;
+      }
+
+      .lowmenu li:hover a {
+        color: #525050;
+      }
+
+      .lowmenu li:hover {
+        background-color: #eee;
+      }
+
+      .lowmenu li:hover > .dropdownMenu {
+        display: block;
+        position: absolute;
+        margin-left: 83px;
+      }
+
+      .sidebar {
+        background-color: #ddd;
+        position: absolute;
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: calc(100% - 3rem);
+        z-index: 100;
+        left: -300px;
+        transition: left 0.4s;
+      }
+
+      .top_logo,
+      .top_mute {
+        font-size: 28px;
+        font-weight: 700;
+
+    }
+
+      .top_mute {
+        padding: 0;
+        color: #000;
+        opacity: 0.4;
+        font-size: 13px;
+        padding-bottom: 32px;
+      }
+
+      .top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+
+      .item {
+        opacity: 0.8;
+        margin-top: 16px;
+        transition: all 0.3s;
+        cursor: pointer;
+        letter-spacing: 0px;
+      }
+
+      .item:hover {
+        letter-spacing: 12px;
+        text-transform: uppercase;
+      }
+
+      .bottom {
+        position: absolute;
+        bottom: 16px;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .im {
+        width: 30px;
+        margin: 2px;
+        cursor: pointer;
+      }
+
+      .active {
+        left: 0;
+      }
+
+      .hamburgerMenu{
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.2);
+        /* display: flex; */
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+      }
+
+      .hamburgerMenu > img{
+        width: 90%;
+      }
+
+      @media screen and (max-width: 1024px) {
+        nav {
+          justify-content: space-between;
+        }
+        .navRight {
+          padding-right: 2rem;
+          justify-content: flex-end;
+        }
+        .navLeft {
+          justify-content: flex-start;
+        }
+
+        .lowmenu li:nth-child(even) {
+          display: none;
+        }
+
+        .hamburgerMenu{
+            visibility: hidden;
+        }
+
+      }
+
+      @media screen and (max-width: 768px) {
+        .lowmenu li:nth-child(7) {
+          display: none;
+        }
+
+        .hamburgerMenu{
+            visibility: visible;
+        }
+
+        .lowmenu li:nth-child(11) {
+          display: none;
+        }
+
+        nav {
+            align-items: center;
+          justify-content: space-between;
+        }
+
+        .navLeft {
+          justify-content: center;
+          width: 100%;
+          flex: 1;
+        }
+
+        .navMid {
+          display: none;
+        }
+
+        .navRight {
+          display: none;
+        }
+
+        .navLeft > a {
+          display: none;
+        }
+      }
+    </style>
+
+    <script
+      src="https://kit.fontawesome.com/2660e694b2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <div class="menu hamburgerMenu">
+        <img src="./images/menuIcon.png" alt="menu">
+        <div class="sidebar">
+          <div class="top">
+            <div class="top_logo">asos</div>
+            <span class="top_mute">Shopping Website</span>
+          </div>
+          <span class="item">Home</span>
+          <span class="item">About</span>
+          <span class="item">Men</span>
+          <span class="item">Women</span>
+          <span class="item">Clothing   </span>
+          <div class="bottom">
+            <img
+              src="https://img.icons8.com/color/48/000000/facebook-new.png"
+              class="im"
+            />
+            <img
+              src="https://img.icons8.com/fluency/48/000000/facebook-messenger--v1.png"
+              class="im"
+            />
+            <img
+              src="https://img.icons8.com/fluency/48/000000/instagram-new.png"
+              class="im"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="navLeft">
+        <p id="logoText">asos</p>
+        <a href="#">MEN</a>
+        <a href="#">WOMEN</a>
+      </div>
+      <div class="navMid">
+        <div class="searchBarContainer">
+          <input type="text" />
+          <img src="./images/search.png" alt="" />
+        </div>
+      </div>
+      <div class="navRight">
+        <img src="./images/user.png" alt="" />
+        <img src="./images/favourite.png" alt="" />
+        <img src="./images/shop.png" alt="" />
+      </div>
+    </nav>
+    <div>
+      <div class="menu">
+        <ul class="lowmenu">
+          <li class="firstlast">
+            <a href="">sale</a>
+          </li>
+          <li>
+            <a href="">New In</a>
+          </li>
+          <li>
+            <a href="">Clothing</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li>
+            <a href="">Dressing</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li>
+            <a href="">Shoes</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li>
+            <a href="">Sportswear</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li>
+            <a href="">Accessories</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li>
+            <a href="">Autumn</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li>
+            <a href="">Trending now</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li>
+            <a href="">Topshop</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li>
+            <a href="">Face + Body</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li>
+            <a href="">Brands</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li class="firstlast">
+            <a href="">Outlet</a>
+            <div class="dropdownMenu"></div>
+          </li>
+          <li>
+            <a href="">Marketplace</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    const $ = document;
+    let menuIcon = $.getElementsByClassName("menu")[0];
+    let sidebar = $.getElementsByClassName("sidebar")[0];
+
+    let icons = [
+      "https://img.icons8.com/ios-filled/50/000000/menu--v1.png",
+      "https://img.icons8.com/external-becris-lineal-becris/64/000000/external-cancel-mintab-for-ios-becris-lineal-becris.png",
+    ];
+
+    let i = 1;
+    menuIcon.addEventListener("click", (e) => {
+      e.target.src = icons[i];
+      sidebar.classList.toggle("active");
+      i == 0 ? i++ : i--;
+    });
+  </script>
+</html>
