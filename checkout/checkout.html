@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASOS | Checkout Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "PT Sans", sans-serif;
+        letter-spacing: 2px;
+      }
+
+      body {
+        background-color: #f2f2f2;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 4rem;
+        margin: auto;
+        padding: 0 10%;
+      }
+
+      .checkoutHeadings {
+        font-size: 26px;
+        letter-spacing: 3px;
+      }
+
+      header > img:first-child {
+        height: 60%;
+      }
+
+      header > :last-child {
+        height: 60%;
+        border-radius: 20px;
+      }
+
+      .container {
+        display: flex;
+        max-width: 72rem;
+        margin: auto;
+      }
+
+      .container > div {
+        width: 100%;
+        margin: 1rem;
+      }
+
+      .container > div > * {
+        padding: 1.7rem;
+      }
+
+      .container > div:nth-child(2) {
+        width: 60%;
+        margin: 1rem;
+        /* background-color: white; */
+      }
+
+      .countrySelect {
+        background-color: white;
+        padding: 1.7rem;
+      }
+
+      .countrySelect > label {
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .countrySelect > div {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+      }
+
+      .countrySelect > div > img {
+        max-width: 2.2rem;
+      }
+
+      .countrySelect > div > select {
+        width: 50%;
+        height: 3rem;
+        margin-left: 1rem;
+      }
+
+      .flex-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .promo {
+        margin-top: 1rem;
+        background-color: white;
+      }
+
+      .checkoutHeadingsSmall {
+        font-size: 16px;
+        letter-spacing: 3px;
+      }
+
+      #promoBody {
+        padding: 1.7rem;
+      }
+
+      #promoBody > * {
+        margin-bottom: 1.5rem;
+      }
+
+      #promoBody > div > h1 {
+        border-bottom: none;
+        border-top: none;
+        padding: 1.7rem;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+      }
+
+      #promoBody > div > h1.promoOrVoucherSelected {
+        border: 1px solid black;
+        border-bottom: none;
+      }
+
+      #promoBody > div > h1.promoOrVoucherNotSelected {
+        border: none;
+        border-bottom: 1px solid black;
+      }
+
+      .inputGroup {
+        align-items: inherit;
+        margin-bottom: 2rem;
+      }
+
+      .inputGroup > label {
+        padding: 0.8rem 2rem;
+        background-color: black;
+        color: white;
+        width: 30%;
+      }
+
+      #promoInput {
+        width: 68%;
+      }
+
+      #promoFooter > h1 {
+        text-align: left !important;
+        padding-left: 0 !important;
+      }
+
+      li {
+        margin-bottom: 1rem;
+      }
+
+      .textMuted {
+        color: rgba(0, 0, 0, 0.4);
+      }
+
+      .emailContainer {
+        background-color: white;
+        padding: 1.7rem;
+        margin-top: 1rem;
+      }
+
+      #right {
+        height: fit-content;
+        position: sticky;
+        top: 1rem;
+      }
+
+      #right > div {
+        background-color: white;
+      }
+
+      .checkoutCard {
+        display: flex;
+        padding: 1rem !important;
+        height: 8rem;
+      }
+
+      .checkoutCard > div > * {
+        margin-bottom: 0.3rem;
+      }
+
+      .checkoutCard > img {
+        height: 100%;
+        margin-right: 1rem;
+      }
+
+      .checkoutCard > div > p:first-child {
+        font-weight: 700;
+        color: grey;
+        font-size: 16px;
+        letter-spacing: 3px;
+      }
+
+      #color {
+        font-weight: 700;
+      }
+
+      #toAppend {
+        margin-bottom: 1rem;
+      }
+
+      #total {
+        font-size: 24px;
+      }
+
+      #placeOrder{
+        width: 100%;
+        margin-top: 1rem;
+        background-color: #018849;
+        color: white;
+        border: none;
+        font-size: 24px;
+      }
+
+      @media screen and (max-width:1024px) {
+        .container{
+            flex-direction: column;
+        }
+
+        #right{
+            width: 95%;
+            margin: auto;
+        }
+
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        src="https://assets.asosservices.com/checkout/2.0.1.10052/images/chrome/asos-logo/asos-logo.svg"
+        alt="logo"
+      />
+
+      <h1 class="checkoutHeadings">CHECKOUT</h1>
+
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyBGvn0XRNKXdT-D4NPm1ABmAU66I5zDeAewGX8TevPWW4cSWKwDUtII7tK7TmbP_Nldo&usqp=CAU"
+        alt="digicert"
+      />
+    </header>
+    <div class="container">
+      <div id="left">
+        <div class="countrySelect">
+          <label for="country">Delivery country</label>
+          <div>
+            <img
+              src="https://assets.asosservices.com/checkout/2.0.1.10052/images/shared/flags/in.png"
+              alt="India"
+            />
+            <select name="country" id="country">
+              <option value="india">India</option>
+            </select>
+          </div>
+        </div>
+        <div class="promo">
+          <div class="promoHeader flex-between" id="promoHeader">
+            <h1 class="checkoutHeadingsSmall">
+              PROMO / STUDENT CODE OR VOUCHER
+            </h1>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div id="promoBody">
+            <div class="flex-between">
+              <h1
+                id="promoCode"
+                class="checkoutHeadingsSmall promoOrVoucherSelected"
+              >
+                PROMO/STUDENT CODE
+              </h1>
+              <h1
+                id="voucher"
+                class="checkoutHeadingsSmall promoOrVoucherNotSelected"
+              >
+                VOUCHER
+              </h1>
+            </div>
+            <h1 id="addPromo" class="checkoutHeadingsSmall">
+              ADD A PROMO/STUDENT CODE
+            </h1>
+            <h2 id="studentPromo" class="checkoutHeadingsSmall textMuted">
+              PROMO/STUDENT CODE :
+            </h2>
+            <div class="inputGroup flex-between">
+              <input type="text" id="promoInput" />
+              <label for="promoInput" id="couponButton"> APPLY CODE</label>
+            </div>
+            <div id="promoFooter">
+              <h1 class="checkoutHeadingsSmall">NEED TO KNOW</h1>
+              <ul>
+                <li>
+                  You can only use one discount/promo code per order. This
+                  applies to our free-delivery codes, too.
+                </li>
+                <li>
+                  Discount/promo codes cannot be used when buying gift vouchers.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="emailContainer">
+          <h1 class="checkoutHeadings">EMAIL ADDRESS</h1>
+          <span id="email">harsh09889@gmail.com</span>
+        </div>
+      </div>
+      <div id="right">
+        <div>
+          <h1 class="checkoutHeadings">
+            <span id="numberOfItems">2</span> Items
+          </h1>
+          <div id="toAppend">
+            <!-- <div class="checkoutCard">
+                    <img src="https://images.asos-media.com/products/asos-design-overcoat-with-borg-collar-in-tan/200221056-1-tan?$n_240w$&wid=1926&fit=constrain" alt="">
+                    <div>
+                        <p> Rs. <span id="price">1300</span> </p>
+                        <p id="productTitle">ASOS DESIGN baseball cap in black cotton</p>
+                        <p id="color">Black</p>
+                    </div>
+                </div> -->
+          </div>
+        </div>
+        <div class="emailContainer totalContainer">
+          <h1 class="checkoutHeadings">SUB TOTAL</h1>
+          <span id="total"></span>
+        </div>
+
+        <button id="placeOrder">
+            Place Order
+        </button>
+
+      </div>
+    </div>
+  </body>
+  <script type="module">
+    document.getElementById("promoCode").addEventListener("click", (e) => {
+      document
+        .getElementById("voucher")
+        .classList.toggle("promoOrVoucherNotSelected");
+      document
+        .getElementById("voucher")
+        .classList.toggle("promoOrVoucherSelected");
+      e.target.classList.toggle("promoOrVoucherNotSelected");
+      e.target.classList.toggle("promoOrVoucherSelected");
+
+      if (
+        document
+          .getElementById("promoCode")
+          .classList.contains("promoOrVoucherSelected")
+      ) {
+        console.log("promoCode selected");
+        document.getElementById("addPromo").innerHTML =
+          "ADD A PROMO/STUDENT CODE";
+        document.getElementById("studentPromo").innerHTML =
+          "PROMO/STUDENT CODE :";
+      } else {
+        document.getElementById("addPromo").innerHTML = "ADD A VOUCHER";
+        document.getElementById("studentPromo").innerHTML =
+          "16-DIGIT VOUCHER CODE";
+      }
+    });
+    document.getElementById("voucher").addEventListener("click", (e) => {
+      document
+        .getElementById("promoCode")
+        .classList.toggle("promoOrVoucherNotSelected");
+      document
+        .getElementById("promoCode")
+        .classList.toggle("promoOrVoucherSelected");
+      e.target.classList.toggle("promoOrVoucherNotSelected");
+      e.target.classList.toggle("promoOrVoucherSelected");
+
+      if (
+        document
+          .getElementById("promoCode")
+          .classList.contains("promoOrVoucherSelected")
+      ) {
+        console.log("promoCode selected");
+        document.getElementById("addPromo").innerHTML =
+          "ADD A PROMO/STUDENT CODE";
+        document.getElementById("studentPromo").innerHTML =
+          "PROMO/STUDENT CODE :";
+        document.getElementById("promoFooter").innerHTML =
+          '<h1 class="checkoutHeadingsSmall">NEED TO KNOW</h1> <ul> <li>You can only use one discount/promo code per order. This applies to our free-delivery codes, too. </li> <li> Discount/promo codes cannot be used when buying gift vouchers. </li> </ul>';
+      } else {
+        document.getElementById("addPromo").innerHTML = "ADD A VOUCHER";
+        document.getElementById("studentPromo").innerHTML =
+          "16-DIGIT VOUCHER CODE";
+        document.getElementById("promoFooter").innerHTML =
+          "Got a gift card? Visit My Account to add it to your gift-voucher balance before you can redeem it at checkout.";
+      }
+    });
+
+    import importedData from "../data/data.js";
+
+    localStorage.setItem("products", JSON.stringify(importedData));
+
+    const products = JSON.parse(localStorage.getItem("products")) || [];
+
+    const cartProducts = products.filter((el) => {
+      return el?.isInCart;
+    });
+
+    const numberOfItems = document.getElementById("numberOfItems");
+    numberOfItems.innerText = cartProducts.length;
+
+    const toAppend = document.getElementById("toAppend");
+    var total = 0;
+
+    cartProducts.forEach((element, i) => {
+      renderCartProduct(element, i);
+      total += element.price;
+    });
+
+    document.getElementById("total").innerText = total;
+
+    function renderCartProduct(elem, index) {
+      const checkoutCard = document.createElement("div");
+      checkoutCard.classList.add("checkoutCard");
+      const img = document.createElement("img");
+      img.setAttribute("src", elem.images[0]);
+
+      const div = document.createElement("div");
+      const p1 = document.createElement("p");
+      p1.innerHTML = ` Rs. <span id="price">${elem.price}</span> `;
+      const p2 = document.createElement("p");
+      p2.innerText = elem.productTitle;
+      p2.id = "productTitle";
+      const p3 = document.createElement("p");
+      p3.innerText = elem.color;
+      p3.id = "color";
+
+      div.append(p1, p2, p3);
+      checkoutCard.append(img, div);
+      document.getElementById("toAppend").append(checkoutCard);
+    }
+
+    const couponButton = document.getElementById('couponButton')
+    couponButton.addEventListener('click' , (e) => {
+        const coupon = document.getElementById('promoInput') || 0
+        if(coupon.value == 'asos50') {
+            alert('Coupon applied Successfully')
+            document.getElementById("total").innerText -= total/2;
+            couponButton.style.visibility  = 'hidden'
+        } else{
+            alert('Not a valid Coupon')
+        }
+    })
+
+  </script>
+</html>
