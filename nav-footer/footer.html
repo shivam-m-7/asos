@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      .upper {
+        min-height: 100%;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      h3 {
+        font-size: 0.875rem;
+        letter-spacing: 2px;
+        font-family: futura-pt, sans-serif;
+
+        font-weight: 700;
+      }
+      span {
+        color: #666;
+      }
+      .change {
+        font-size: 0.875rem;
+        letter-spacing: 2px;
+        font-family: futura-pt, sans-serif;
+        font-weight: 700;
+      }
+      .footer {
+        background: #eee;
+        color: #666;
+      }
+
+      .footer-socials {
+        border-top: 1px solid #eee;
+        width: 100%;
+        height: 62px;
+        margin: auto;
+        display: inline-flex;
+        background: #fff;
+        justify-content: center;
+      }
+      .socials {
+        height: 100%;
+        max-height: 60px;
+        vertical-align: top;
+        margin-right: 5%;
+      }
+      .socials li {
+        display: inline-block;
+      }
+      .socials li img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        margin: 15px 0 15px 50px;
+        padding: 1px;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border: 1px solid #fff;
+      }
+      .payment {
+        border-left: 1px solid #999;
+        height: 100%;
+      }
+      .payment li {
+        margin: 20px -5px 20px 50px;
+        padding: 1px;
+        display: inline-flex;
+        vertical-align: top;
+        overflow: hidden;
+      }
+
+      .payment li img {
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;
+      }
+      .footer-bottom {
+        background: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1rem;
+      }
+   
+      .footer-bottom p {
+        font-size: small;
+      }
+
+      .footer-bottom a {
+        text-decoration: none;
+        color: black;
+        font-size: small;
+      }
+      .footer-bottom a:hover {
+        color: rgb(51, 81, 232);
+      }
+
+      .container-footer {
+        background-color: #eee;
+      }
+      .footer-content {
+        height: 100%;
+        display: flex;
+        padding: 22px;
+        margin: 0 auto;
+      }
+      .footer-section:first-child {
+        margin-left: 30px;
+      }
+      .footer-section {
+        flex: 1;
+        margin-left: 15px;
+        margin-right: 0;
+        margin-bottom: 0;
+        border: none;
+      }
+      ul {
+        list-style: none;
+      }
+      .footer .footer-content .footer-section ul a {
+        display: block;
+        margin-bottom: 10px;
+        text-decoration: none;
+        color: #666;
+      }
+      .footer .footer-content .footer-section ul a:hover {
+        color: #1862a5;
+      }
+      #country {
+        height: auto;
+        display: inline-block;
+        margin: 0 7px;
+      }
+      #country h3 {
+        line-height: normal;
+        width: 100%;
+        padding-bottom: 10px;
+      }
+      .countrybtn {
+        border: none;
+        background-color: transparent;
+        outline: none;
+        height: 30px;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        align-content: center;
+      }
+      .countrybtn:hover span,
+      .countrybtn:hover img {
+        cursor: pointer;
+        color: #1862a5;
+      }
+      .countryimg {
+        margin: 0 7px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        vertical-align: middle;
+        border: 1px solid #f8f8f8;
+        box-shadow: 0 0 0 1px #ddd;
+      }
+
+      @media only screen and (max-width: 1030px) {
+        #country {
+          display: none;
+        }
+      }
+      @media only screen and (max-width: 770px) {
+        .footer-upper {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="upper"></div>
+
+    <div class="footer">
+      <div class="footer-upper">
+        <div class="footer-socials">
+          <ul class="socials">
+            <li>
+              <a href="#"><img src="images/facebook.png" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/instagram.png" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"><img src="images/snapchat.png" alt="" /></a>
+            </li>
+          </ul>
+          <ul class="payment">
+            <li><img src="images/visa.png" alt="" /></li>
+            <li><img src="images/master-card.png" alt="" /></li>
+            <li><img src="images/paypal.png" alt="" /></li>
+            <li><img src="images/american.png" alt="" /></li>
+            <li><img src="images/visa-electron.png" alt="" /></li>
+          </ul>
+        </div>
+
+        <div class="container-footer">
+          <div class="footer-content">
+            <div class="footer-section">
+              <h3>HELP & INFORMATION</h3>
+              <br />
+              <ul>
+                <a href=""><li>Help</li></a>
+                <a href=""><li>Track order</li></a>
+                <a href=""><li>Delivery & returns</li></a>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3>ABOUT ASOS</h3>
+              <br />
+              <ul>
+                <a href=""><li>About us</li></a>
+                <a href=""><li>Careers at ASOS</li></a>
+                <a href=""><li>Corporate responsibility</li></a>
+                <a href=""><li>Investor's site</li></a>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h3>MORE FROM ASOS</h3>
+              <br />
+              <ul>
+                <a href=""><li>Mobile and ASOS apps</li></a>
+                <a href=""><li>ASOS Marketplace</li></a>
+                <a href=""><li>Gift vouchers</li></a>
+                <a href=""><li>Black Friday</li></a>
+                <a href=""><li>ASOSxThrift+</li></a>
+              </ul>
+            </div>
+            <div id="country" class="footer-section">
+              <h3>SHOPPING FROM:</h3>
+              <button class="countrybtn">
+                <span>you're in</span>
+                <img class="countryimg" src="images/india.png" alt="" />
+                <span class="change"> | CHANGE</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2022 ASOS</p>
+        <div>
+            <a href=""> Privacy & Cookies | </a>
+            <a href="">T&C | </a>
+            <a href=""> Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
