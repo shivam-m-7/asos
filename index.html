@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASOS | Online SHopping for the Latest Clothes and Fashion</title>
+    <style>
+        
+         @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+        *
+        {
+            font-family:'PT Sans', sans-serif;
+            letter-spacing: 2px;
+            margin: 0px;
+            padding: 0px;
+        }
+        #firstchild
+        {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: px;
+            align-items: center;
+            background-color: rgb(255,56,92);
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 10px;
+        }
+        #firstchild>button
+        {
+            padding: 8px;
+            background-color: rgb(255,56,92);
+            border: 2px solid black;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 2s ease-in-out;
+        }
+        #firstchild>button:hover
+        {
+            transform: scale(0.8);
+        }
+        #secondchild
+        {
+            position: relative;
+            text-align: center;
+        }
+        #thirdchild
+        {
+            display: flex;
+            background-color: rgb(45,45,45);
+            justify-content: space-around;
+            color: white;
+            width: 1400px;
+            margin: auto;
+            margin-top: -5px;
+            margin-bottom: -800px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            padding: 10px 0px;
+        }
+        #zerochild
+        {
+            display: none;
+            text-align: center;
+            background-color: rgb(45,45,45);
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin: auto;
+        }
+        .text
+        {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 35px;
+            background-color: white;
+            font-size: 65px;
+            padding: 20px;
+        }
+        .ptext
+        {
+            position: absolute;
+            top: 47%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 35px;
+            background-color: white;
+            padding:  0px 5px;
+            font-weight: 500;
+        }
+        #shopbutton1
+        {
+            position: absolute;
+            border: none;
+            top: 55%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        #shopbutton2
+        {
+            position: absolute;
+            border: none;
+            top: 55%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        #shopbutton1:hover,#shopbutton2:hover
+        {
+            background-color: black;
+            color: white;
+        }
+        #thirdchild>div:first-child>p:last-child
+        {
+            font-size: 12px;
+        }
+        #zerochild>div:first-child>p:last-child
+        {
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+        @media screen and (max-width: 430px) 
+        {
+           #zerochild
+           {
+            display: block;
+           }
+            #firstchild
+           {
+            display: none;
+           }
+           .text
+           {
+            font-size: 36px;
+            padding: 10px;
+            font-weight: 900;
+            top: 25%;
+            left: 50%;
+            margin: auto;
+            word-wrap: break-word;
+            white-space: normal;
+           }
+           .ptext
+            {
+                top: 45%;
+                left: 50%;
+                font-weight: 900;
+            }
+            #shopbutton1
+            {
+                word-wrap: break-word;
+                white-space: normal;
+                top: 70%;
+                left: 50%
+            }
+            #shopbutton2
+            {
+                word-wrap: break-word;
+                white-space: normal;
+                top: 80%;
+                left: 50%
+            }
+            #thirdchild
+           {
+            display: none;
+           }
+        }
+        @media screen and (min-width: 431px) and (max-width: 1024px) 
+        {
+           #zerochild
+           {
+            display: block;
+           }
+            #firstchild
+           {
+            display: none;
+           }
+           .text
+           {
+            font-size: 36px;
+            padding: 10px;
+            font-weight: 900;
+            top: 40%;
+            left: 50%;
+            margin: auto;
+            word-wrap: break-word;
+            white-space: normal;
+           }
+           .ptext
+            {
+                top: 50%;
+                left: 50%;
+                font-weight: 900;
+            }
+            #shopbutton1
+            {
+                word-wrap: break-word;
+                white-space: normal;
+                top: 60%;
+                left: 50%
+            }
+            #shopbutton2
+            {
+                word-wrap: break-word;
+                white-space: normal;
+                top: 70%;
+                left: 50%
+            }
+            #thirdchild
+           {
+            display: none;
+            margin-bottom: -5000px;
+           }
+        }
+    </style>
+</head>
+<body>
+    <!--Navbar-->
+    <div id="nav-placeholder"></div>
+    <div id="zerochild">
+        <div>
+            <p>EASY WORLDWIDE DELIVERY</p>
+            <p>* minimum spends apply</p>
+        </div>
+        <div>
+            <p>ASOS DESIGN and 850+</p>
+            <p>brands</p>
+        </div>
+    </div>
+    <div id="firstchild">
+        <button id="sb1">WOMEN</button>
+        <div>
+            <p>SALE: UP TO 80% OFF!</p>
+            <p>AUTUMN SAVINGS INCOMING </p>
+        </div>
+        <button id="sb2">MEN</button>
+    </div>
+    <div id="secondchild">
+        <img id="mainimg" src="https://content.asos-media.com/-/media/homepages/unisex/generic-hp/september-2022/microsoftteams-image-169---dt--.png" alt="Asos landing page">
+        <h1 class="text">This is Asos</h1>
+        <p class="ptext">ASOS DESIGN and 850+ brands</p>
+        <div >
+            <button id="shopbutton1"> SHOP WOMEN</button>
+            <button id="shopbutton2"> SHOP MEN</button>
+        </div>
+    </div>
+    <div id="thirdchild">
+        <div>
+            <p>EASY WORLDWIDE DELIVERY</p>
+            <p>* minimum spends apply</p>
+        </div>
+        <div>
+            <p>ASOS DESIGN and 850+</p>
+            <p>brands</p>
+        </div>
+    </div>
+    <div id="foot-placeholder"></div>
+</body>
+</html>
+<script>
+    document.querySelector("#shopbutton1").addEventListener("click",function()
+    {
+        window.location.href="womens.html"
+    })
+    document.querySelector("#shopbutton2").addEventListener("click",function()
+    {
+        window.location.href="mens.html"
+    })
+    
+    document.querySelector("#sb1").addEventListener("click",function()
+    {
+        window.location.href="womens.html"
+    })
+    document.querySelector("#sb2").addEventListener("click",function()
+    {
+        window.location.href="mens.html"
+    })
+    var image=document.querySelector("#mainimg")
+    var mQuery = window.matchMedia('(max-width: 1024px)')
+            function handleMobilePhoneResize(e) {   
+            if (e.matches) {     
+                image.setAttribute("src","https://content.asos-media.com/-/media/homepages/unisex/generic-hp/september-2022/microsoftteams-image-173---mob--.jpg") 
+                image.style.width="100%"
+                image.style.margin="auto"
+                image.style.height="auto"
+            } 
+            else
+            { 
+                location.reload()
+            }
+            
+            } 
+            mQuery.addEventListener("change",handleMobilePhoneResize)
+            
+</script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+$.get("./navbar.html", function(data){
+    $("#nav-placeholder").replaceWith(data);
+});
+</script>
+
+</script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+$.get("./footer.html", function(data){
+    $("#foot-placeholder").replaceWith(data);
+});
+</script>
