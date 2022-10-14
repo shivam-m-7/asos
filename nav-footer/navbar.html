@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        nav{
+            background-color: #2d2d2d;
+            display: flex;
+            height: 64px;
+        }
+
+        .navLeft{
+            flex: 0.5;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 2rem;
+            padding-left: 3%;
+            /* background-color: red; */
+        }
+
+        .navLeft > a:first-of-type{
+            margin-left: 4%;
+        }
+
+        .navLeft > a{
+            height: 100%;
+            color: white;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            /* background-color: yellow; */
+            border-right:1px solid white;
+        }
+
+        .navLeft > a:hover{
+            background-color: #525050;
+        }
+
+        .navMid{
+            flex: auto;
+            /* background-color: green; */
+            display: flex;
+            align-items: center;
+            justify-content: stretch;
+        }
+        
+
+        #logoText{
+            color: white;
+            /* background-color: yellow; */
+            display: flex;
+            align-items: center;
+            font-weight: 900;
+            height: 100%;
+            font-size: 52px;
+        }
+
+        .searchBarContainer{
+            display: flex;
+            align-items: center;
+            justify-content: stretch;
+            height: 60%;
+            border-radius: 25px;
+            padding: 0 1.5rem;
+            width: 97%;
+            margin: auto;
+            background-color: white;
+        }
+
+        .searchBarContainer > input{
+            display: block;
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+
+        .searchBarContainer > img{
+            display: block;
+            width: 20px;
+        }
+
+        .navRight{
+            display: flex;
+            align-items: center;
+            flex: 0.5;
+        }
+
+        .navRight > img{
+            height: 35%;
+            margin-left: 2rem;
+        }
+        .lowmenu{
+            display: flex;
+            justify-content: center;
+            list-style: none; 
+            align-items: center;
+            height: 3rem;
+            background-color: #525050;
+        }
+        .lowmenu li {
+            display: flex;
+            position: relative;
+            align-items: center;
+            height: 100%;
+            padding: 0 1.2%;
+        }
+        
+        .firstlast {
+            background-color: #d01345;
+            transform: skew(-12deg);
+        }
+
+        .lowmenu li a{
+            color: white; 
+        }
+
+        .lowmenu li:hover a{
+            color: #525050; 
+        }
+
+        .lowmenu li:hover{
+            background-color: #eee;
+            
+        }
+
+        .lowmenu li:hover > .dropdownMenu{
+            display: block;
+            position: absolute;              
+            margin-left: 83px;
+        }
+
+        .dropdownMenu{
+            height: 6rem;
+            width:30rem;            
+            background-color: #eee;
+            position: absolute;
+            z-index: 10;
+            top:3rem;
+            transform: translateX(-40%);
+            display: none;
+        }
+        .menu-section li a img{
+            border-radius: 50%;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            background-color: #eee;
+        }
+        .menu-container{
+            display: flex;          
+            list-style: none; 
+            width: 100%;
+        }
+        .menu-section{
+           margin-right: 65%;
+           justify-content: space-between;
+           
+          
+
+        }
+        .menu-section ul {
+            margin: auto;
+            max-width: 30rem;
+
+        }
+        .menu-section h4{
+            width: 6rem;
+        }
+    </style>
+   
+    <script src="https://kit.fontawesome.com/2660e694b2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <div class="navLeft">
+            <p id="logoText">asos</p>
+            <a href="#">MEN</a>
+            <a href="#">WOMEN</a>
+
+        </div>
+        <div class="navMid">
+            <div class="searchBarContainer">
+                <input type="text">
+                <img src="./images/search.png" alt="">
+            </div>
+        </div>
+        <div class="navRight">
+            <img src="./images/user.png" alt="">
+            <img src="./images/favourite.png" alt="">
+            <img src="./images/shop.png" alt="">
+        </div>       
+    </nav>
+    <div>
+        <div class="menu">
+            <ul class="lowmenu">
+                <li class="firstlast">
+                   <a href="">sale</a> 
+                  
+                </li>
+                <li>    
+                    <a href="">New In</a> 
+                    <div class="dropdownMenu">
+                        <div class="menu-container">
+                            <div class="menu-section">
+                                <h4>SHOP BY PRODUCT</h4>
+                                <ul class="categories">
+                                    <li><a href=""> Autumn essentials</a></li>
+                                    <li><a href=""> Blazers</a></li>
+                                    <li><a href=""> Boots</a></li>
+                                    <li><a href=""> Coats & Jackets</a></li>
+                                    <li><a href="">Jumpers</a></li>
+                                    <li><a href="">Hoodies & Sweatshirts</a></li>
+                                    <li><a href="">Cardigans</a></li>
+                                    <li><a href="">Scarves</a></li>
+                                    <li><a href="">Dresses</a></li>
+                                    <li><a href="">Shackets</a></li>
+                                    <li><a href="">Beanies</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-section">
+                                <h4>COATS & JACKETS</h4>
+                                <ul class="categories">
+                                    <li><a href="">View all Coats </a></li>
+                                    <li><a href="">View all Jackets</a></li>
+                                    <li><a href="">Borg & Teddy Coats</a></li>
+                                    <li><a href="">Macs</a></li>
+                                    <li><a href="">Leather Jackets</a></li>
+                                    <li><a href="">Bomber Jackets</a></li>
+                                    <li><a href="">Puffer Jackets</a></li>
+                                    <li><a href="">Rain Coats</a></li>
+                                    <li><a href="">Trench Coat</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-section">
+                                <h4>TOPS</h4>
+                                <ul>
+                                    <li><a href="">View all Tops</a></li>
+                                    <li><a href="">Bodysuits</a></li>
+                                    <li><a href="">Long Sleeve Tops</a></li>
+                                    <li><a href="">Knitted Tops</a></li>
+                                    <li><a href="">Blouses</a></li>
+                                    <li><a href="">Shirts</a></li>
+                                    <li><a href="">Sweater Vests</a></li>
+                                    <li><a href="">T-Shirts & Vests</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-section">
+                                <h4>SHOES & BOOTS</h4>
+                                <ul>
+                                    <li><a href=""><img src="https://images.asos-media.com/navigation/ww_uk_autumn_viewallshoesandboots_3M_116769193?&$n_240w$" alt="">
+                                    <p>View all</p></a></li>
+
+                                    <li><a href=""><img src="https://images.asos-media.com/navigation/ww_uk_autumn_ankleboots_3M_120727013?&$n_240w$" alt="">
+                                        <p>Ankle Boots</p></a></li>
+
+                                        <li><a href=""><img src="https://images.asos-media.com/navigation/ww_uk_autumn_chelseaboots_3M_118734531?&$n_240w$  " alt="">
+                                            <p>Chelsea Boots</p></a></li>
+
+                                            <li><a href=""><img src="https://images.asos-media.com/navigation/ww_sr_shoes_loafers_3m_1442119?&$n_240w$" alt="">
+                                                <p>Chunky Shoes</p></a></li>
+
+                                                <li><a href=""><img src="https://images.asos-media.com/navigation/ww_uk_autumn_cowboyboots_3M_114865514?&$n_240w$" alt="">
+                                                    <p>Cowboy Boots</p></a></li>
+
+                                                    <li><a href=""><img src="https://images.asos-media.com/navigation/ww_uk_autumn_kneehighboots_3M_105737428?&$n_240w$" alt="">
+                                                        <p>Knee high Boots</p></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                 </li>
+                 <li>
+                    <a href="">Clothing</a> 
+                    <div class="dropdownMenu"></div>
+                 </li>
+                 <li>
+                    <a href="">Dressing</a> 
+                    <div class="dropdownMenu"></div>
+                 </li>
+                 <li>
+                    <a href="">Shoes</a> 
+                    <div class="dropdownMenu"></div>
+                 </li>
+                 <li>
+                    <a href="">Sportswear</a> 
+                    <div class="dropdownMenu"></div>
+                 </li>
+                 <li>
+                    <a href="">Accessories</a>
+                    <div class="dropdownMenu"></div> 
+                 </li>
+                 <li>
+                    <a href="">Autumn</a>
+                    <div class="dropdownMenu"></div> 
+                 </li>
+                 <li>
+                    <a href="">Trending now</a> 
+                    <div class="dropdownMenu"></div>
+                 </li>
+                 <li>
+                    <a href="">Topshop</a> 
+                    <div class="dropdownMenu"></div>
+                 </li>
+                 <li>
+                    <a href="">Face + Body</a> 
+                    <div class="dropdownMenu"></div>
+                 </li>
+                 <li>
+                    <a href="">Brands</a> 
+                    <div class="dropdownMenu"></div>
+                 </li>
+                 <li class="firstlast">
+                    <a href="">Outlet</a> 
+                    <div class="dropdownMenu"></div>
+                 </li>
+                 <li>
+                    <a href="">Marketplace</a> 
+                 </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
