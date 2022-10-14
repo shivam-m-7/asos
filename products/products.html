@@ -253,8 +253,8 @@
     </style>
 </head>
 <body>
-
-    <button onclick="scrollToTop()" id="back-to-up">
+    <div id="nav-placeholder"></div>
+    <button id="back-to-up">
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
       </button>
 
@@ -310,19 +310,35 @@
             <option value="River Island">River Island</option>
         </select>
 
-        <select name="price" id="priceSelect">
+        <select name="color" id="color">
             <option value="">Colour</option>
-            <option value="lth">Low To High</option>
-            <option value="htl">High To Low</option>
+            <option value="Black">Black</option>
+            <option value="Pink">Pink</option>
+            <option value="Tan">Tan</option>
         </select>
 
-        <select name="price" id="priceSelect">
+        <select name="size" id="size">
             <option value="">Size</option>
             <option value="lth">Low To High</option>
             <option value="htl">High To Low</option>
         </select>
     </div>
     <div id="productsContainer"></div>
+    <div id="foot-placeholder"></div>
 </body>
 <script src="products.js" type="module"></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+$.get("navbar.html", function(data){
+    $("#nav-placeholder").replaceWith(data);
+});
+</script>
+
+</script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+$.get("footer.html", function(data){
+    $("#foot-placeholder").replaceWith(data);
+});
+</script>
 </html>
