@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PT Sans', sans-serif;
+            letter-spacing: 2px;
+            color: #2d2d2d;
+        }
+
+        body{
+            padding: 7rem 0;
+        }
+
+        .salePane{
+            padding: 0.8rem 0;
+            display: flex;
+            justify-content: space-around;
+            font-weight: 700;
+            background-color: #ff385c;
+        }
+        
+        .salePane > p{
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .salePane button{
+            width: 7rem;
+            border: 2px solid black;
+            color: black;
+            font-weight: 700;
+            font-size: 13px;
+            background-color: transparent;
+        }
+
+        #path{
+            display: flex;
+            list-style-type: none;
+            padding: 1.2rem 5rem;
+
+        }
+
+        #path > li{
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        #path > *{
+            margin-right: 1.5rem;
+        }
+
+        #path + div{
+            padding: 2rem 0;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            background-color: #F8F8F8;
+        }
+
+        #path + div + div{
+            padding: 1rem 5rem;
+            display: grid;
+            grid-auto-flow: column;
+            gap: 1.5rem;
+        }
+
+        #container, #productDetailsContainer{
+            width: 95%;
+            max-width: 1024px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 0.25fr 1.2fr 0.75fr;
+        }
+
+        #imgThumbnailContainer{
+            /* background-color: red; */
+            padding: 1.5rem;
+        }
+
+        #imgThumbnailContainer > img{
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        #mainImageContainer{
+            position: relative;
+            overflow: hidden;
+            /* background-color: red; */
+        }
+
+        #mainImageContainer button{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            z-index: 2;
+            padding: 1.5%;
+            font-size: 3rem;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        #mainImageContainer button:nth-child(2){
+            /* right: 0; */
+            left:100%;
+            transform: translateX(-100%) translateY(-50%) ;
+            /* background-color: red; */
+        }
+
+        #imgs{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transform: translateX(0);
+            transition: transform .5s ease-in-out;
+        }
+
+        #mainImageContainer #imgs > img{
+            position: relative;
+            width: 100%;
+            object-fit: cover;
+            /* aspect-ratio: 5/6; */
+        }
+
+        #mainImageContainer::after{
+            font: var(--fa-font-regular);
+            content: '123 \f004';
+            position: absolute;
+            bottom: 4rem;
+            right: 0;
+            height: 2rem;
+            width: 6rem;
+            border-radius: 20px 0 0 20px;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        #productDetails{
+            /* background-color: brown; */
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            position: relative;
+        }
+
+        #productDetails > *{
+            margin-bottom: 1.5rem;
+        }
+
+        #productDetails > h1{
+            padding-right: 0.5rem;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 24px;
+        }
+        
+        #price, .productDetailsHeadings{
+            font-size: 18px;
+            font-weight: 700;
+            color: grey;
+        }
+
+        #color{
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .size > p, .color{
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .size>select{
+            width: 100%;
+            margin-top: 0.5rem;
+            padding: 0.5rem 0.2rem;
+        }
+
+        .buttonGroup{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .buttonGroup > input{
+            width: 75%;
+            position: relative;
+            padding: 0.75rem 0;
+            background-color: #008c4b;
+            border: none;
+            outline: none;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        #wishListButton{
+            height: 45px;
+            width: 45px;
+            background-color: rgba(0, 0, 0, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        #wishListButton:hover{
+            background-color: rgba(255, 42, 42, 0.594);
+            color: white;
+            font-size: 20px;
+        }
+
+        #wishListButton.addedToWishlist{
+            background-color: purple;
+            color: white;
+        }
+        .addedToWishlist > i{
+            color: white;
+        }
+
+        #deliveryContainer{
+            height: 6rem;
+            border: 1px solid grey;
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+        }
+
+        #productDetailsContainer{
+            position: relative;
+            grid-template-columns: repeat(3,auto);
+            gap: 4rem;
+            line-height: 24px;
+            margin: 3rem auto;
+            height: 8rem;
+            margin-bottom: 0;
+            overflow-y: hidden;
+            padding-bottom: 3rem;
+            transition: max-height .5s ease-in-out; 
+        }
+        
+        #productDetailsContainer+hr{
+            transition: all .5s ease-in-out; 
+        }
+        
+        #productDetailsContainer div{
+            /* background-color: red; */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .productDetailsHeadings{
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #productDetailsContainer > button{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 1rem;
+            padding: 0.5rem 3rem;
+            background-color: white;
+            font-weight: 700;
+        }
+
+        #recommendations{
+            display: grid;
+            width: 95%;
+            max-width: 1302px;
+            margin: 3rem auto;
+            gap: 1rem;
+            grid-template-columns: repeat(6,1fr) ;
+        }
+        
+        .card{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card > #wishListButton{
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            height: 32px;
+            width: 32px;
+            font-size: 18px;
+        }
+
+        .card > img{
+            inline-size: 100%;
+            object-fit: cover;
+            aspect-ratio: 13/16;
+            margin-bottom: 0.25rem;
+        }
+
+        .card > p{
+            display: flex;
+            justify-content: flex-start;
+            line-height: 20px;
+            word-wrap: break-word;
+            padding: 0.45rem;
+            font-weight: 400;
+
+        }
+
+        .card > p:first-of-type{
+            flex-grow: 1;
+            color: #2D2D2D;
+        }
+        
+        .card > p > span{
+            color: #2D2D2D;
+            margin-left: 0.25rem;
+            font-weight: 700;
+        }
+
+        .alsoLike{
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+
+        @media screen and (max-width:1024px){
+            #recommendations{
+                grid-template-columns: repeat(3,1fr);
+                width: 80%;
+            }
+            #imgThumbnailContainer{
+                display: none;
+            }
+            #container{
+                grid-template-columns: 1fr 0.9fr;
+            }
+
+            #productDetails{
+                width: 98%;
+            }
+
+            #productDetailsContainer{
+            grid-template-columns: repeat(2,auto);
+            gap: 1rem;
+            margin: 1rem auto;
+            }
+            .alsoLike{
+                display: none;
+            }
+           
+        }
+
+        @media screen and (max-width:768px){
+            #recommendations{
+                display: none;
+            }
+            #imgThumbnailContainer{
+                display: none;
+            }
+
+            #mainImageContainer{
+                margin-bottom: 1rem;
+            }
+            
+            #container{
+                grid-template-columns: 1fr;
+            }
+
+            #productDetails{
+                padding: 0 ;
+            }
+
+            #productCode + h1{
+                display: none;
+            }
+            #productCode + h1 + p{
+                display: none;
+            }
+            .alsoLike{
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="salePane">
+            <button id="linkToMen">Men</button>
+            <p>SALE UPTO : !80% OFF <BR> AUTUMN SAVING, INCOMING!</p>
+            <button id="linkToWomen">Women</button>
+        </div>
+        <ul id="path"></ul>
+    </header>
+    <div id="container">
+        <div id="imgThumbnailContainer">
+        </div>
+        <div id="mainImageContainer">
+            <button id="left"><i class="fa-solid fa-arrow-left"></i></button>
+            <button id="right"><i class="fa-solid fa-arrow-right"></i></button>
+            <div id="imgs">
+            </div>
+        </div>
+        <div id="productDetails">
+            <h1 id="productTitle"></h1>
+            <p id="price"></p>
+            <p class="color">Colour : <span id="color"></span></p>
+            <div class="size">
+                <p>Size:</p>
+                <select name="size" id="size">
+                    <option value="">Please Select</option>
+                    <option value="S">Small</option>
+                    <option value="M">Medium</option>
+                    <option value="L">Large</option>
+                </select>
+            </div>
+            <div class="buttonGroup">
+                <input type="button" value="Add to Bag" id="addToBag"><div id="wishListButton"><i class="fa-regular fa-heart"></i></div>
+            </div>
+                <div id="deliveryContainer">
+                <p><i class="fa-solid fa-truck"></i> Free Delivery.</p>
+            </div>
+        </div>
+    </div>
+    <div id="productDetailsContainer">
+        <div>
+            <h1 class="productDetailsHeadings">Product Details</h1>
+            <p id="productDetailsDesc"></p>
+            <h1 class="productDetailsHeadings">Product Code</h1>
+            <p id="productCode"></p>
+        </div>
+        <div>
+            
+            <h1 class="productDetailsHeadings">Brand</h1>
+            <p id="brand"></p>
+        </div>
+        <div>
+            <h1 class="productDetailsHeadings">Look after me</h1>
+            <p id="lookAfterMe"></p>
+            <h1 class="productDetailsHeadings">About me</h1>
+            <p id="aboutMe"></p>
+        </div>
+        <div></div>
+        <button id="showMoreLess">Show More</button>
+    </div>
+    <hr/>
+    <h2 class="alsoLike">You Might Also Like</h2>
+    <div id="recommendations">
+    </div>
+</body>
+<script src="productDescription.js"></script>
+</html>
