@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <script src="https://kit.fontawesome.com/646ce80a81.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+        *
+        {
+            font-family:'PT Sans', sans-serif;
+        }
+        #container
+        {
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            margin: auto;
+            width: 30%;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 40px;
+        }
+        #signin
+        {
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            max-width: 400px;
+            margin: auto;
+            font-Weight: 700;
+            letter-spacing: 2px;
+        }
+        #bag
+        {
+            padding: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            background-color: white;
+            width: 100%;
+            letter-spacing: 2px;
+            border-color: rgb(18,144,85);
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #size
+        {
+            width: 100%;
+            padding: 5px;
+            font-size: 18px;
+        }
+        .img-wrap 
+        {
+            position: relative;
+            display: inline-block;
+            font-size: 0;
+        }
+        .img-wrap .close 
+        {
+            position: absolute;
+            top: 2px;
+            right: 10px;
+            z-index: 100;
+            padding: 5px 2px 2px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            font-size: 22px;
+            line-height: 10px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        .img-wrap:hover .close 
+        {
+            opacity: 1;
+        }
+        #sortportion
+        {
+            width:90%;
+            margin: auto;
+        }
+        @media screen and (min-width: 701px) and (max-width: 1024px)
+        {
+            #container
+            {
+                grid-template-columns: repeat(1,1fr);
+            }
+        }
+        @media screen and (max-width: 700px) 
+        {
+            #container
+            {
+                grid-template-columns: repeat(1,1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <div id="title"></div>
+    <div id="sortportion"></div>
+    <div id="container"></div>
+    <div id="foot-placeholder"></div>
+</body>
+<script>
+    var mensData=JSON.parse(localStorage.getItem("products"))||[]
+    call(mensData)
+    function call(mensData)
+    {
+    document.querySelector("#container").innerHTML="";
+    document.querySelector("#sortportion").innerHTML="";
+    document.querySelector("#title").innerHTML="";
+    var logindata=JSON.parse(localStorage.getItem("logindata"))||[]
+    if(logindata.length==0)
+        {
+            var p=document.createElement("p")
+            p.setAttribute("class","sourceText")
+            p.innerHTML='<i class="fa-regular fa-heart"></i>'
+            var h2=document.createElement("h2")
+            h2.innerHTML="You have no Saved Items"
+            h2.style.marginBottom="-5px"
+            var p1=document.createElement("p")
+            var signin=document.createElement("button")
+            signin.setAttribute("id","signin");
+            signin.innerText="SIGN IN"
+            signin.addEventListener("click",login)
+            function login()
+            {
+                window.location.href="../LOGIN_SIGNUP/Login.html"
+            }
+            p1.innerText="Sign in to sync your Saved Items across all your devices."
+            document.querySelector("#container").append(p,h2,p1,signin)
+            var cont=document.querySelector("#container")
+            cont.setAttribute("style",'grid-template-columns: repeat(' + 1 + ', 1fr)');
+            cont.style.marginTop="150px"
+        }
+    else
+    {
+    var wishlistdata=mensData.filter(function(ele)
+    {
+    return ele.isInWishlist==true && ele.isInCart==false;
+    })
+    if(wishlistdata.length==0)
+    {
+        var p=document.createElement("p")
+        p.setAttribute("class","sourceText")
+        p.innerHTML='<i class="fa-regular fa-heart"></i>'
+        var h2=document.createElement("h2")
+        h2.innerHTML="You have no Saved Items"
+        h2.style.marginBottom="-5px"
+        var p1=document.createElement("p")
+        var signin=document.createElement("button")
+        signin.setAttribute("id","signin");
+        signin.innerText="START SHOPPING"
+        signin.addEventListener("click",login)
+        function login()
+        {
+            window.location.href="../index.html"
+        }
+        p1.innerText="Start saving as you shop by selecting the little heart.We'll sync your items across all your devices. Easy."
+        document.querySelector("#container").append(p,h2,p1,signin)
+        var cont=document.querySelector("#container")
+        cont.setAttribute("style",'grid-template-columns: repeat(' + 1 + ', 1fr)');
+        cont.style.marginTop="150px"
+    }
+    else
+    {
+        var divtitle=document.createElement("div")
+            var h1=document.createElement("h1")
+            h1.innerText="Saved Items"
+            h1.style.textAlign="center"
+            h1.style.padding="15px"
+            divtitle.style.backgroundColor="rgb(238,238,238)"
+            divtitle.append(h1)
+            document.querySelector("#title").append(divtitle)
+        var divsort=document.createElement("div")
+        var sort=document.createElement("select")
+        var o0=document.createElement("option")
+        o0.innerText="Sort By"
+        o0.setAttribute("value","")
+        var o1=document.createElement("option")
+        o1.innerText="Price: High-Low"
+        o1.setAttribute("value","h-l")
+        var o2=document.createElement("option")
+        o2.innerText="Price: Low-High"
+        o2.setAttribute("value","l-h")
+        var o3=document.createElement("option")
+        o3.innerText="Brand A-Z"
+        o3.setAttribute("value","a-z")
+        var o4=document.createElement("option")
+        o4.innerText="Brand Z-A"
+        o4.setAttribute("value","z-a")
+        var o5=document.createElement("option")
+        o5.innerText="% Discount Low-High"
+        o5.setAttribute("value","disc")
+        var o6=document.createElement("option")
+        o6.innerText="% Discount High-Low"
+        o6.setAttribute("value","disc-rev")
+        sort.append(o0,o1,o2,o3,o4,o5,o6)
+        sort.style.padding="5px"
+        sort.style.border="none"
+        sort.style.fontWeight="700"
+        sort.style.fontSize="16px"
+        sort.setAttribute("onchange","handlesort()")
+        sort.setAttribute("id","sort")
+        divsort.append(sort)
+        document.querySelector("#sortportion").append(divsort)
+        divsort.style.marginBottom="50px"
+        wishlistdata.map(function(ele)
+        {
+            var div=document.createElement("div")
+            var divimg=document.createElement("div")
+            divimg.setAttribute("class","img-wrap")
+            var del=document.createElement("p")
+            del.setAttribute("class","close")
+            del.innerHTML='<i class="fa-regular fa-trash-can"></i>'
+            del.addEventListener("click",deleteitem)
+            function deleteitem()
+            {
+                ele.isInWishlist=false;
+                localStorage.setItem("products",JSON.stringify(mensData))
+                call(mensData)
+            }
+            var img=document.createElement("img")
+            img.setAttribute("src",ele.images[0])
+            img.style.width="100%"
+            img.style.cursor="pointer"
+            img.addEventListener("click",productpage)
+            function productpage()
+            {
+                //link to particular product
+            }
+            divimg.append(del,img)
+            var desc=document.createElement("div")
+            desc.innerText=ele.productTitle
+            desc.style.marginBottom="-5px"
+            desc.style.height="50px"
+            var sprice=document.createElement("pre")
+            sprice.style.textDecoration="line-through"
+            var divprice=document.createElement("div")
+            sprice.innerText="Rs. "+ ele.strikedOffPrice
+            var price=document.createElement("pre")
+            price.innerText="   Rs. "+ele.price
+            price.style.color="red"
+            divprice.append(sprice,price)
+            divprice.style.display="flex"
+            divprice.style.justifyContent="left"
+            var color=document.createElement("p")
+            color.innerText=ele.color
+            color.style.marginTop="-5px"
+            var size=document.createElement("select")
+            size.setAttribute("id","size");
+            var temp=[]
+            console.log(ele.size)
+            for(var i=0;i<ele.size.length;i++)
+            {
+                var s1=document.createElement("option")
+                s1.innerText=ele.size[i]
+                temp[i]=s1
+            }
+            
+            for(var i=0;i<temp.length;i++)
+            {
+                size.append(temp[i]);
+            }
+            var br=document.createElement("br")
+            var bag=document.createElement("button")
+            bag.innerText="MOVE TO BAG"
+            bag.setAttribute("id","bag");
+            div.append(divimg,desc,divprice,color,size,br,bag)
+            document.querySelector("#container").append(div);
+            var con=document.querySelector("#container")
+            con.setAttribute("style",'grid-template-columns: repeat(' + 3 + ', 1fr)');
+            con.style.width="90%"
+            con.style.gap="20px 10px"
+            con.style.textAlign="left"
+            con.style.fontWeight="700"
+            var mQuery = window.matchMedia('(max-width: 700px)')
+            function handleMobilePhoneResize(e) {   
+            if (e.matches) {     
+                con.setAttribute("style",'grid-template-columns: repeat(' + 1 + ', 1fr)'); 
+            } 
+            else
+            {
+                con.setAttribute("style",'grid-template-columns: repeat(' + 3 + ', 1fr)');    
+            }
+            con.style.width="90%"
+            con.style.gap="20px 10px"
+            con.style.textAlign="left"
+            con.style.fontWeight="700"
+            } 
+            mQuery.addEventListener("change",handleMobilePhoneResize)
+            
+            if(size=="")
+            {
+                bag.disabled=true;
+            }
+            else
+            {
+                bag.addEventListener("click",movetobag)
+                function movetobag()
+                {
+                    ele.isInCart=true
+                    localStorage.setItem("products",JSON.stringify(mensData))
+                    call(mensData)
+                }
+            }
+            
+        })
+    }
+    }
+    }
+    function handlesort()
+    {
+        var wishlistdata=mensData.filter(function(ele)
+        {
+        return ele.isInWishlist==true && ele.isInCart==false;
+        })
+        var sort=document.querySelector("#sort").value
+        if(sort=="l-h")
+        {
+            wishlistdata.sort(function(a,b)
+            {
+                if(a.price>b.price)return 1;
+                else if(a.price<b.price)return -1
+                return 0;
+            })
+        }
+        else if(sort=="h-l")
+        {
+            wishlistdata.sort(function(a,b)
+            {
+                if(a.price>b.price)return -1;
+                else if(a.price<b.price)return 1
+                return 0;
+            })
+        }
+        else if(sort=="a-z")
+        {
+            wishlistdata.sort(function(a,b)
+            {
+                if(a.brand>b.brand)return 1;
+                else if(a.brand<b.brand)return -1
+                return 0;
+            })
+        }
+        else if(sort=="z-a")
+        {
+            wishlistdata.sort(function(a,b)
+            {
+                if(a.brand>b.brand)return -1;
+                else if(a.brand<b.brand)return 1
+                return 0;
+            })
+        }
+        else if(sort=="disc")
+        {
+            wishlistdata.sort(function(a,b)
+            {
+                if(a.discount>b.discount)return 1;
+                else if(a.discount<b.discount)return -1
+                return 0;
+            })
+        }
+        else if(sort=="disc-rev")
+        {
+            wishlistdata.sort(function(a,b)
+            {
+                if(a.discount>b.discount)return -1;
+                else if(a.discount<b.discount)return 1
+                return 0;
+            })
+        }
+        call(wishlistdata)
+    }
+</script>
+</html>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+$.get("./navbar.html", function(data){
+    $("#nav-placeholder").replaceWith(data);
+});
+</script>
+
+</script>
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+$.get("./footer.html", function(data){
+    $("#foot-placeholder").replaceWith(data);
+});
+</script>
