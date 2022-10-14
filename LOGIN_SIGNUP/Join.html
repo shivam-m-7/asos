@@ -472,6 +472,7 @@
         var fname=document.querySelector("#fname")
         var lname=document.querySelector("#lname")
         var isMenOrWomen=document.querySelector('input[name="radiobutton"]:checked').value;
+        localStorage.setItem("isMenOrWomen",JSON.stringify(isMenOrWomen));
         console.log(isMenOrWomen)
         if(data.length==0)
         {
