@@ -15,9 +15,7 @@
       body {
         height: 100%;
       }
-      .upper {
-        min-height: 100%;
-      }
+      
       ul,
       li {
         list-style: none;
@@ -51,21 +49,27 @@
         display: inline-flex;
         background: #fff;
         justify-content: center;
+        display: flex;
+        align-items: center;
       }
       .socials {
         height: 100%;
         max-height: 60px;
-        vertical-align: top;
-        margin-right: 5%;
+        /* vertical-align: top; */
+        /* margin-right: 5%; */
+        display: flex;
+        align-items: center;
+
       }
       .socials li {
         display: inline-block;
+        margin: 0 1rem;
       }
       .socials li img {
         height: 40px;
         width: 40px;
         border-radius: 50%;
-        margin: 15px 0 15px 50px;
+        /* margin: 15px 0 15px 50px; */
         padding: 1px;
         background-repeat: no-repeat;
         background-position: 50%;
@@ -74,6 +78,8 @@
       .payment {
         border-left: 1px solid #999;
         height: 100%;
+        display: flex;
+        align-items: center;
       }
       .payment li {
         margin: 20px -5px 20px 50px;
@@ -177,6 +183,9 @@
 
       @media only screen and (max-width: 1030px) {
         #country {
+          display: none;
+        }
+        div.upper{
           display: none;
         }
       }
