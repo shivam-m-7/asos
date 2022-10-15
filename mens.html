@@ -14,6 +14,11 @@
             margin: 0px;
             padding: 0px;
         }
+
+        body{
+            height: 200vh;
+        }
+
         #firstchild
         {
             display: flex;
@@ -440,24 +445,27 @@
             <img src="https://content.asos-media.com/-/media/homepages/unisex/brands-logos/256x256/dr-martens-hp-logos-256x256.jpg" alt="">
         </div>
     </div>
-    <div id="foot-placeholder"></div>
+    <!-- <div id="foot-placeholder"></div> -->
 </body>
 </html>
 <script>
     document.querySelector("#shopbutton1").addEventListener("click",womenspage)
     function womenspage()
     {
-        window.location.href="womens.html"
+        localStorage.setItem('isMenOrWomen',JSON.stringify('Women'))
+        window.location.href="./products/products.html"
     }
 
     document.querySelector("#shopbutton2").addEventListener("click",menspage)
     function menspage()
     {
-        window.location.href="mens.html"
+        localStorage.setItem('isMenOrWomen',JSON.stringify('Men'))
+        window.location.href="./products/products.html"
     }
     document.querySelector("#button").addEventListener("click",productpage)
     function productpage()
     {
+        localStorage.setItem('isMenOrWomen',JSON.stringify('Men'))
         window.location.href="./products/products.html"
     }
     document.querySelector(".productpagebutton").addEventListener("click",productpage)
@@ -466,6 +474,8 @@
     {
         window.location.href="./products/products.html"
     }
+
+
 </script>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script>

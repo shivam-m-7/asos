@@ -34,7 +34,7 @@ homeLink.addEventListener('click', (e) => {
 const isMenOrWomenLink = document.getElementById(`${productDescription.isMenOrWomen}`);
 isMenOrWomenLink.addEventListener('click', (e) => {
     
-    window.location.href = '../mensProducts/products.html';
+    window.location.href = '../products/products.html';
 })
 
 const productDetailsContainer = document.getElementById('productDetailsContainer')
@@ -58,12 +58,12 @@ wishListButton.addEventListener('click', (e) => {
 
 document.getElementById('linkToMen').addEventListener('click', (e) => {
     localStorage.setItem('isMenOrWomen',JSON.stringify('Men'))
-    window.location.href = '../mensProducts/products.html'
+    window.location.href = '../products/products.html'
 })
 
 document.getElementById('linkToWomen').addEventListener('click', (e) => {
     localStorage.setItem('isMenOrWomen',JSON.stringify('Women'))
-    window.location.href = '../mensProducts/products.html'
+    window.location.href = '../products/products.html'
 })
 
 document.getElementById('addToBag').addEventListener('click', (e) => {
@@ -186,7 +186,18 @@ function addProductDescriptionToLS(code) {
 }
 
 
-console.log(recommended)
+document.getElementById('addToBag').addEventListener('click', (e) => {
+    const prevProducts = JSON.parse( localStorage.getItem('products') )
+    const newProducts = prevProducts.map((el,i) => {
+        if(el.productCode === productDescription.productCode){
+            el.isInCart = true;
+        }
+        return el;
+    })
+
+    localStorage.setItem('products',JSON.stringify(newProducts));
+    alert('This Product has been added to the cart')
+})
 
 function renderProducts(object,i) {
 
