@@ -1,1 +1,1 @@
-https://gregarious-caramel-71823c.netlify.app/
+https://clone-asos.netlify.app/
