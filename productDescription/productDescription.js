@@ -42,7 +42,7 @@ const productDetailsContainer = document.getElementById('productDetailsContainer
 const showMoreLess = document.getElementById('showMoreLess');
 showMoreLess.addEventListener('click', (e) => {
     if(showMoreLess.innerText === 'Show More'){
-        productDetailsContainer.style.height = '100%'
+        productDetailsContainer.style.height = '50%'
         showMoreLess.innerText = 'Show Less'
     }else{
         productDetailsContainer.style.height = '8rem'
