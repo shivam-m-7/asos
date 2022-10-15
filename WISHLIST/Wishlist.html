@@ -141,7 +141,7 @@
     {
     var wishlistdata=mensData.filter(function(ele)
     {
-    return ele.isInWishlist==true && ele.isInCart==false;
+    return ele.isInWishlist==true;
     })
     if(wishlistdata.length==0)
     {
@@ -304,6 +304,7 @@
                 function movetobag()
                 {
                     ele.isInCart=true
+                    ele.isInWishlist=false;
                     localStorage.setItem("products",JSON.stringify(mensData))
                     call(mensData)
                 }
@@ -317,7 +318,7 @@
     {
         var wishlistdata=mensData.filter(function(ele)
         {
-        return ele.isInWishlist==true && ele.isInCart==false;
+        return ele.isInWishlist==true;
         })
         var sort=document.querySelector("#sort").value
         if(sort=="l-h")

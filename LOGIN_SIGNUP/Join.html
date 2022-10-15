@@ -412,10 +412,10 @@
         <div id="oc">You need to be 16 or over to use ASOS</div>
         <Label>MOSTLY INTERESTED IN:</Label>
         <div id="radio">
-        <input type="radio" value="Womenswear" name="radiobutton">
-        <label>Womenswear </label>
-        <input type="radio" value="Menswear" name="radiobutton">
-        <label>Menswear</label>
+        <input id="womenswear" type="radio" value="Womens" name="radiobutton">
+        <label for="womenswear">Womenswear </label>
+        <input id="menswear" type="radio" value="Mens" name="radiobutton">
+        <label for="menswear">Menswear</label>
         <br>
         </div>
         <div id="updates">
@@ -520,7 +520,7 @@
                 data.push(signupobj)
                 localStorage.setItem("data",JSON.stringify(data))
                 alert("Sign Up Successfull")
-                window.location.href="./HomePage/index.html"
+                window.location.href="../index.html"
             }
         })
         }
