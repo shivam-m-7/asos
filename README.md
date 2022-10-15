@@ -1,3 +1,1 @@
-# asos
-asos
- this is readme file for our project asos.com clone
+https://gregarious-caramel-71823c.netlify.app/
